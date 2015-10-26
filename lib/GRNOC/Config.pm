@@ -1,15 +1,10 @@
 #--------------------------------------------------------------------
-#----- Copyright(C) 2008 The Trustees of Indiana University
+#----- Copyright(C) 2015 The Trustees of Indiana University
 #--------------------------------------------------------------------
-#----- $LastChangedBy: $
-#----- $LastChangedRevision: $
-#----- $LastChangedDate: $
-#----- $HeadURL: $
-#----- $Id: $
-#-----
 #----- a simple config module for use in all GRNOC programs with passwords
 #-----
 #---------------------------------------------------------------------
+
 package GRNOC::Config;
 
 use warnings;
