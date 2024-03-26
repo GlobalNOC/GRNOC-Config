@@ -1,6 +1,16 @@
+#!/usr/bin/perl
 use strict;
 use warnings;
 use ExtUtils::MakeMaker;
+
+sub MY::postamble { <<"END"; }
+venv:
+	carton install --deployment --path=venv
+
+rpm:  manifest dist
+	rpmbuild -ta GRNOC-Config-\$(VERSION).tar.gz
+
+END
 
 WriteMakefile(
     NAME                => 'GRNOC::Config',
@@ -15,7 +25,7 @@ WriteMakefile(
 		  'XML::LibXML' => 0,
 	      },
 	      dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
-	      clean               => { FILES => 'GRNOC-Config-*' },
+	      clean               => { FILES => 'GRNOC-Config-* venv' },
 	      );
 
 sub MY::test
