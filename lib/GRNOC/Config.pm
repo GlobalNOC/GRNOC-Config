@@ -10,6 +10,7 @@ package GRNOC::Config;
 use warnings;
 use strict;
 
+use lib '/opt/grnoc/venv/perl-GRNOC-Config/lib/perl5';
 require Data::Dumper;
 require XML::Simple;
 require XML::XPath;
@@ -25,7 +26,7 @@ Version 1.0.9
 
 =cut
 
-    our $VERSION = '1.0.9';
+    our $VERSION = '1.0.10';
 
 
 =head1 SYNOPSIS
