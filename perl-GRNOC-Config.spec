@@ -3,7 +3,7 @@
 %define specfile_deps %(cat cpanfile | sed -r 's/^requires ([^[:space:]]*)/Requires: perl(\\1)/' | sed 's/["'"'"';]//g')
 Name: perl-GRNOC-Config
 Version: 1.0.10
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: GRNOC Config Library
 License: CHECK(Distributable)
 Group: Development/Libraries
@@ -30,8 +30,8 @@ GlobalNOC Config Library
 
 %install
 %{__rm} -rf %{buildroot}
-%{__install} -d -p %{buildroot}/%{perl_lib}/GRNOC/
-%{__install} lib/GRNOC/Config.pm %{buildroot}/%{perl_lib}/GRNOC/Config.pm
+%{__install} -d -p %{buildroot}/%{perl_sitelib}/GRNOC/
+%{__install} lib/GRNOC/Config.pm %{buildroot}/%{perl_sitelib}/GRNOC/Config.pm
 %if 0%{rhel} == 8
 %{__install} -d -p %{buildroot}%{perl_lib}%{name}/lib/perl5
 cp -r venv/lib/perl5/* -t %{buildroot}%{perl_lib}%{name}/lib/perl5
@@ -50,5 +50,5 @@ make test
 %{perl_lib}/%{name}/lib/perl5/*
 %endif
 %defattr(644,root,root,-)
-%{perl_lib}/GRNOC/Config.pm
+%{perl_sitelib}/GRNOC/Config.pm
 
